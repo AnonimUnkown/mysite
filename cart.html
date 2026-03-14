@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина - SuperShop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cart-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .clear-btn { background: #ff4d4d; color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">SuperShop</a>
+        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Корзина (<span id="cart-count">0</span>)</a>
+    </header>
+
+    <div class="container" style="margin-top: 50px; width: 80%; max-width: 600px;">
+        <h2><i class="fas fa-shopping-basket"></i> Ваша корзина</h2>
+        <div id="cart-items-list">
+            </div>
+        <div id="cart-total" style="margin-top: 20px; font-size: 1.5rem; font-weight: bold;"></div>
+        <button class="btn btn-primary" onclick="alert('Заказ оформлен!')">Оформить заказ</button>
+        <button class="clear-btn" onclick="clearCart()">Очистить корзину</button>
+        <br>
+        <a href="products.html" style="color: white; display: block; margin-top: 20px;">Продолжить покупки</a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Специальный скрипт только для страницы корзины
+        function displayCart() {
+            const list = document.getElementById('cart-items-list');
+            const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+            list.innerHTML = '';
+            
+            if (cart.length === 0) {
+                list.innerHTML = '<p>Корзина пуста</p>';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <span>${item.price} ₽</span>
+                    </div>
+                `;
+            });
+        }
+        displayCart();
+
+        function clearCart() {
+            localStorage.removeItem('cartCount');
+            localStorage.removeItem('cartItems');
+            location.reload();
+        }
+    </script>
+</body>
+</html>

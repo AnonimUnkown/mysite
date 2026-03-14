@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить товар - SuperShop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="reg-card">
+        <h2>Добавить новый товар</h2>
+        <input type="text" id="p-name" placeholder="Название товара" style="width:100%; padding:10px; margin:10px 0;">
+        <input type="number" id="p-price" placeholder="Цена (руб)" style="width:100%; padding:10px; margin:10px 0;">
+        <input type="text" id="p-img" placeholder="Ссылка на фото (URL)" style="width:100%; padding:10px; margin:10px 0;">
+        <button class="btn btn-primary" onclick="addNewProduct()" style="width:100%;">Опубликовать</button>
+        <a href="products.html" style="color: #764ba2; display:block; margin-top:10px;">К списку товаров</a>
+    </div>
+
+    <script>
+        function addNewProduct() {
+            const name = document.getElementById('p-name').value;
+            const price = document.getElementById('p-price').value;
+            const img = document.getElementById('p-img').value || 'https://via.placeholder.com/150';
+
+            const newProduct = { name, price, img };
+            let products = JSON.parse(localStorage.getItem('customProducts')) || [];
+            products.push(newProduct);
+            localStorage.setItem('customProducts', JSON.stringify(products));
+
+            alert('Товар добавлен!');
+            window.location.href = 'products.html';
+        }
+    </script>
+</body>
+</html>

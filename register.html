@@ -23,7 +23,9 @@
     
     <header>
         <a href="index.html" class="logo">SuperShop</a>
-        <a href="#" class="cart-btn"><i class="fas fa-shopping-cart"></i> Корзина (0)</a>
+       <a href="#" class="cart-btn">
+    <i class="fas fa-shopping-cart"></i> Корзина (<span id="cart-count">0</span>)
+</a>
     </header>
 
     <div class="main-content">
@@ -42,10 +44,13 @@
                     <label>Пароль</label>
                     <input type="password" placeholder="••••••••">
                 </div>
-                <button type="button" class="btn btn-primary" style="width: 100%; margin: 10px 0;" onclick="alert('Успех!')">Создать аккаунт</button>
+                <button type="button" class="btn btn-primary" style="width: 100%; margin: 10px 0;" onclick="localStorage.setItem('user', 'registered'); alert('Вы успешно зарегистрированы!'); window.location.href='index.html';">
+    Создать аккаунт
+</button>
             </form>
             <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Назад</a>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
