@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши товары</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Дополнительные стили специально для этой страницы */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #eee;
+        }
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 10px 0;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center; width: 100%;">
+        <h1>Наши товары</h1>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div style="background: #ddd; height: 150px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📦 Фото товара</div>
+                <h3>Смартфон X</h3>
+                <p class="price">45 000 ₽</p>
+                <button class="btn btn-primary" style="padding: 10px 20px;">Купить</button>
+            </div>
+
+            <div class="product-card">
+                <div style="background: #ddd; height: 150px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📦 Фото товара</div>
+                <h3>Ноутбук Pro</h3>
+                <p class="price">95 000 ₽</p>
+                <button class="btn btn-primary" style="padding: 10px 20px;">Купить</button>
+            </div>
+
+            <div class="product-card">
+                <div style="background: #ddd; height: 150px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">📦 Фото товара</div>
+                <h3>Наушники Air</h3>
+                <p class="price">12 000 ₽</p>
+                <button class="btn btn-primary" style="padding: 10px 20px;">Купить</button>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Назад на главную</a>
+    </div>
+</body>
+</html>
